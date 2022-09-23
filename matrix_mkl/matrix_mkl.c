@@ -32,7 +32,9 @@ int main(int argc, const char *argv[])
 	struct timeval start, end;
 	gettimeofday(&start, NULL);
 	// mm_dac(*C, NI, *B, NI, *A, NI, NI);
-	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, NI, NI, NI, 1.0, *A, NI, *B, NI, 0.0, *C, NI);
+	
+	// Reading the Documentation and find which cblas_? function to use
+
 	gettimeofday(&end, NULL);
 	printf("%0.6f\n", tdiff(&start, &end));
 	return 0;

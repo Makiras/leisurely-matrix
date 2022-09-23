@@ -29,16 +29,9 @@ int main(int argc, const char *argv[])
 	}
 	struct timeval start, end;
 	gettimeofday(&start, NULL);
-	cilk_for(int i = 0; i < n; ++i)
-	{
-		for (int k = 0; k < n; ++k)
-		{
-			for (int j = 0; j < n; ++j)
-			{
-				C[i][j] += A[i][k] * B[k][j];
-			}
-		}
-	}
+	
+	// Your code with the cilk_for loop here
+
 	gettimeofday(&end, NULL);
 	printf("%0.6f\n", tdiff(&start, &end));
 	return 0;

@@ -80,6 +80,8 @@ block256: Min = 0.128098
 block512: Min = 0.070781
 block1024: Min = 0.127255
 block2048: Min = 0.194434
+######### C with Intel MKL TEST ##########
+
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/makiras/matrixs/matrix_mkl/build

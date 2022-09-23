@@ -28,26 +28,7 @@ void mm_base(double *restrict C, int n_C,
 			 int n)
 {
 	int i, j, k;
-	__m512d c0, c1, c2, c3;
-	for (i = 0; i < n; ++i)
-		for (k = 0; k < n; k+=32)
-		{
-			c0 = _mm512_load_pd(&C[i * n_C + 0]);
-			c1 = _mm512_load_pd(&C[i * n_C + 8]);
-			c2 = _mm512_load_pd(&C[i * n_C + 16]);
-			c3 = _mm512_load_pd(&C[i * n_C + 24]);
-			for (j = 0; j < n; j+=32)
-			{
-				c0 = _mm512_fmadd_pd(_mm512_load_pd(&A[i * n_A + j]), _mm512_load_pd(&B[j * n_B + k]), c0);
-				c1 = _mm512_fmadd_pd(_mm512_load_pd(&A[i * n_A + j]), _mm512_load_pd(&B[j * n_B + k + 8]), c1);
-				c2 = _mm512_fmadd_pd(_mm512_load_pd(&A[i * n_A + j]), _mm512_load_pd(&B[j * n_B + k + 16]), c2);
-				c3 = _mm512_fmadd_pd(_mm512_load_pd(&A[i * n_A + j]), _mm512_load_pd(&B[j * n_B + k + 24]), c3);
-			}
-			_mm512_store_pd(&C[i * n_C + k], c0);
-			_mm512_store_pd(&C[i * n_C + k + 8], c1);
-			_mm512_store_pd(&C[i * n_C + k + 16], c2);
-			_mm512_store_pd(&C[i * n_C + k + 24], c3);
-		}
+	// Your Code Here with SSE/AVX/AVX2/AVX512 SIMD instructions
 }
 
 void mm_dac(double *restrict C, int n_C,
@@ -56,7 +37,7 @@ void mm_dac(double *restrict C, int n_C,
 			int n)
 {
 	assert((n & (-n)) == n);
-	if (n <= THRESHOLD)
+	if ( /* code here */ )
 		mm_base(C, n_C, A, n_A, B, n_B, n);
 	else
 	{

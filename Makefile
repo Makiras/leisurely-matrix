@@ -204,6 +204,7 @@ cilk_avx: matrix_cilk_avx.c
 	done
 	
 cilk_mkl:
+	@echo "######### C with Intel MKL TEST ##########"
 	@cmake matrix_mkl -DNI=${MSIZE} -B matrix_mkl/build
 	@cmake --build matrix_mkl/build
 	@nbin="matrix_mkl/build/matrix_mkl"; \

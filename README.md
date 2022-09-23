@@ -1,5 +1,58 @@
 # 软件系统的性能工程实验
 
+## 如何使用
+
+### 环境配置
+
+#### Cilk
+
+Link: https://github.com/OpenCilk/opencilk-project/releases/tag/opencilk/v1.0  
+Extract To: /opt/OpenCilk-10.0.1-Linux
+
+> If not installation is not in /opt, please modify the Makefile
+
+
+#### Intel MKL (Part of Intel oneAPI)
+
+Page: https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-download.html
+
+- Plz Follow the installation guide to install Intel oneAPI.
+
+> If not installation is not in /opt/intel/oneapi/mkl/2022.1.0/, please modify the Makefile.
+
+### 使用
+
+> 希望同学们可以互帮互助，如果有问题可以在issue中提出，或者在群里讨论。
+
+#### 自行编译运行
+
+0. 修改并填充代码中的空缺部分。
+1. 参考Makefile中的编译命令，自行编译运行。所有 **-D \.\*** 宏均可直接在代码中修改，并在编译命令中删去。
+2. mkl需要进入`matrix_mkl`目录 `cmake . && camke --build . && ./matrix_mkl` 编译运行。
+
+#### 使用现有Makefile
+
+0. 依据指示修改Makefile中的依赖库路径（Ubuntu和CentOS大概率不用更改）。
+1. 修改代码中的空缺部分。
+2. `make part_name` 运行某部分代码（请注意依照**代码中已有的宏**填写**循环及阈值参数**）
+3. `make` 运行所有测试
+
+> Tips:  
+> 1. `make MSIZE=n` 会将矩阵大小设置为n*n。可以使用128进行调试，1024或4096等进行结果生成。
+> 2. `make > log` 将会把输出重定向到log文件中，方便查看结果。
+> 3. `make clean` 会清除所有生成的文件。
+> 4. `make part_name` 将会只运行你指定的修改部分，建议了解简单的Makefile语法。  
+
+
+>可用的 `part_name` 有：  
+>- `python`, `java`  
+>- `c_class`  ( include: `c_raw`, `c_loop_order`, `c_optimizer` )  
+>- `c_optimized`  ( include: `cilk_class`, `cilk_super` )   
+>- `cilk_class`  ( include: `cilk` `cilk_block` `cilk_recu` `cilk_vec` )
+>- `cilk_super`  ( include: `cilk_avx` `cilk_mkl` )
+
+
+
 ## 性能示例
 
 | 版本  |实现| 运行时间 | 相对上版本加速比 | 相对Python加速比 | GFLOPS | %Peak |
@@ -18,7 +71,7 @@
 
 // GFLOPS, %Peak TBD
 
-## 实验环境
+## 上述实验环境
 
 ```
 OS: CentOS Linux 8 x86_64 
@@ -47,20 +100,3 @@ Intel(R) oneAPI Math Kernel Library (oneMKL) Link Tool v6.3 help
 /opt/intel/oneapi/mkl/2022.1.0/
 ```
 
-## 环境下载
-
-### Cilk
-
-Link: https://github.com/OpenCilk/opencilk-project/releases/tag/opencilk/v1.0  
-Extract To: /opt/OpenCilk-10.0.1-Linux
-
-> If not installation is not in /opt, please modify the Makefile
-
-
-### Intel MKL (Part of Intel oneAPI)
-
-Page: https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-download.html
-
-- Plz Follow the installation guide to install Intel oneAPI.
-
-> If not installation is not in /opt/intel/oneapi/mkl/2022.1.0/, please modify the Makefile.

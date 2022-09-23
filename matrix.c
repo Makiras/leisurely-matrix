@@ -40,16 +40,14 @@ int main(int argc, const char *argv[])
 	}
 	struct timeval start, end;
 	gettimeofday(&start, NULL);
-	for (int _LOOP_1_ = 0; _LOOP_1_ < n; ++_LOOP_1_)
-	{
-		for (int _LOOP_2_ = 0; _LOOP_2_ < n; ++_LOOP_2_)
-		{
-			for (int _LOOP_3_ = 0; _LOOP_3_ < n; ++_LOOP_3_)
-			{
-				C[i][j] += A[i][k] * B[k][j];
-			}
-		}
-	}
+
+	/*
+		Your loop reodering code here.
+		1. If you want change order by your self, **DO NOT USE MAKEFILE**.
+		2. Or you can coding loops like below. 
+			for (int _LOOP_1_ = 0; _LOOP_1_ < n; ++_LOOP_1_)
+	*/
+
 	gettimeofday(&end, NULL);
 	printf("%0.6f\n", tdiff(&start, &end));
 	return 0;
