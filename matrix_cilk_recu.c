@@ -26,7 +26,10 @@ void mm_base(double *restrict C, int n_C,
 			 double *restrict B, int n_B,
 			 int n)
 {
-	// Your code here
+	for (int i = 0; i < n; ++i)
+		for (int k = 0; k < n; ++k)
+			for (int j = 0; j < n; ++j)
+				C[i * n_C + j] += A[i * n_A + k] * B[k * n_B + j];
 }
 
 void mm_dac(double *restrict C, int n_C,
@@ -35,7 +38,7 @@ void mm_dac(double *restrict C, int n_C,
 			int n)
 {
 	assert((n & (-n)) == n);
-	if ( /* code here */ )
+	if (n <= THRESHOLD)
 		mm_base(C, n_C, A, n_A, B, n_B, n);
 	else
 	{
