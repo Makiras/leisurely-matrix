@@ -1,0 +1,122 @@
+[?25l[?7l[0m[1m[33m[1mmakiras[0m@[33m[1mlocalhost.184[0m 
+[0m---------------------[0m 
+[0m[32m[1mOS[0m[0m:[0m CentOS Linux 8 x86_64[0m 
+[0m[32m[1mHost[0m[0m:[0m 2288H V5 Purley[0m 
+[0m[32m[1mKernel[0m[0m:[0m 4.18.0-240.el8.x86_64[0m 
+[0m[32m[1mUptime[0m[0m:[0m 1 day, 4 hours, 50 mins[0m 
+[0m[32m[1mPackages[0m[0m:[0m 1723 (rpm)[0m 
+[0m[32m[1mShell[0m[0m:[0m zsh 5.5.1[0m 
+[0m[32m[1mTerminal[0m[0m:[0m make[0m 
+[0m[32m[1mCPU[0m[0m:[0m Intel Xeon Gold 6226R (64) @ 3.900GHz[0m 
+[0m[32m[1mGPU[0m[0m:[0m Intelligent Management system chip w/VGA support][0m 
+[0m[32m[1mMemory[0m[0m:[0m 10767MiB / 257261MiB[0m 
+
+[?25h[?7h########### PYTHON TEST ############
+
+python3 matrix.py 4096
+Python matrix loop size: 4096
+16972.949575
+############ JAVA TEST #############
+
+java matrix
+432.705506834
+############ RAW C TEST #############
+
+3287.045410
+############ C LOOP ORDER TEST #############
+
+ijk: 3258.777100
+ikj: 152.977417
+jik: 3334.574219
+jki: 6735.060547
+kij: 153.995926
+kji: 6755.471191
+############ C OPTIMIZER TEST #############
+
+O0: 153.178955
+O1: 63.592434
+O2: 55.675896
+O3: 54.958866
+Ofast: 55.248878
+############ C CILK TEST #############
+
+1.548951
+############ C CILK with BLOCK TEST #############
+
+block4: Min = 8.311810
+block8: Min = 2.041171
+block16: Min = 1.882178
+block32: Min = 1.047338
+block64: Min = 1.817096
+block128: Min = 1.820873
+block256: Min = 1.986884
+block512: Min = 1.472801
+block1024: Min = 5.231940
+block2048: Min = 19.249874
+######### C CILK with RECURSION TEST ##########
+
+block4: Min = 2.939976
+block8: Min = 1.425606
+block16: Min = 1.031621
+block32: Min = 0.905799
+block64: Min = 1.401341
+block128: Min = 1.594963
+block256: Min = 1.361775
+block512: Min = 1.422707
+block1024: Min = 6.531979
+block2048: Min = 25.000586
+######### C CILK with march vec TEST ##########
+
+block32: Min = 0.703191
+block512: Min = 1.138035
+############ C CILK with SUPER TEST #############
+
+######### C CILK with AVX512 TEST ##########
+
+block32: Min = 0.356515
+block64: Min = 0.283396
+block128: Min = 0.213216
+block256: Min = 0.128098
+block512: Min = 0.070781
+block1024: Min = 0.127255
+block2048: Min = 0.194434
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/makiras/matrixs/matrix_mkl/build
+gmake[1]: Entering directory '/home/makiras/matrixs/matrix_mkl/build'
+gmake[2]: Entering directory '/home/makiras/matrixs/matrix_mkl/build'
+gmake[3]: Entering directory '/home/makiras/matrixs/matrix_mkl/build'
+Consolidate compiler generated dependencies of target matrix_mkl
+gmake[3]: Leaving directory '/home/makiras/matrixs/matrix_mkl/build'
+gmake[3]: Entering directory '/home/makiras/matrixs/matrix_mkl/build'
+[ 50%] Building C object CMakeFiles/matrix_mkl.dir/matrix_mkl.c.o
+[100%] Linking C executable matrix_mkl
+gmake[3]: Leaving directory '/home/makiras/matrixs/matrix_mkl/build'
+[100%] Built target matrix_mkl
+gmake[2]: Leaving directory '/home/makiras/matrixs/matrix_mkl/build'
+gmake[1]: Leaving directory '/home/makiras/matrixs/matrix_mkl/build'
+ 
+:: initializing oneAPI environment ...
+   bash: BASH_VERSION = 4.4.20(1)-release
+   args: Using "$@" for setvars.sh arguments: 
+:: advisor -- latest
+:: ccl -- latest
+:: compiler -- latest
+:: dal -- latest
+:: debugger -- latest
+:: dev-utilities -- latest
+:: dnnl -- latest
+:: dpcpp-ct -- latest
+:: dpl -- latest
+:: intelpython -- latest
+:: ipp -- latest
+:: ippcp -- latest
+:: ipp -- latest
+:: mkl -- latest
+:: mpi -- latest
+:: tbb -- latest
+:: vpl -- latest
+:: vtune -- latest
+:: oneAPI environment initialized ::
+ 
+mkl acc: Min = 0.230618

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "cilk.h": "c",
+        "*.tcc": "c",
+        "immintrin.h": "c",
+        "mkl.h": "c"
+    }
+}
